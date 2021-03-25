@@ -1,61 +1,103 @@
-$(document).ready(function(){
-    let gender;
-    let goal;
-    let height;
-    let age;
-    let weight;
-    let activity;
-    let result;
-    let bmr;
+$(document).ready(function () {
+  //Inititalize variables
+  let gender;
+  let goal;
+  let height;
+  let age;
+  let weight;
+  let activity;
+  let activityMultiplier;
+  let result;
+  let bmr;
 
-    $('input[type=radio][name=gender]').change(function() {
-            gender = this.value;
-            console.log(gender);
-    })
+  // Assign value of gender from form input
+  $("input[type=radio][name=gender]").change(function () {
+    gender = this.value;
+    console.log(gender);
+  });
 
-    $('input[type=radio][name=goal]').change(function() {
-            goal = this.value;
-            console.log(goal);
-    })
+  // Assign value of goal from form input
+  $("input[type=radio][name=goal]").change(function () {
+    goal = this.value;
+    console.log(goal);
+  });
 
-    $('input[type=number][name=height]').change(function() {
-            height = this.value;
-            console.log(height);
-    })
+  // Assign value of height from form input
+  $("input[type=number][name=height]").change(function () {
+    height = this.value;
+    console.log(height);
+  });
 
-    $('input[type=number][name=age]').change(function() {
-            age = this.value;
-            console.log(age);
-    })
+  // Assign value of age from form input
+  $("input[type=number][name=age]").change(function () {
+    age = this.value;
+    console.log(age);
+  });
 
-    $('input[type=number][name=weight]').change(function() {
-            weight = this.value;
-            console.log(weight);
-    })
+  // Assign value of weight from form input
+  $("input[type=number][name=weight]").change(function () {
+    weight = this.value;
+    console.log(weight);
+  });
 
-    $('#activitylvl').change(function() {
-            activity = this.value;
-            console.log(activity);
-    })
+  // Assign activity level from form dropdown
+  $("#activitylvl").change(function () {
+    activity = this.value;
+    console.log(activity);
 
-    function calculateBMR(gender, weight, height, age) {
-        if (gender == 'male' ){
+    // switch statement dependent on value of dropdown selection
+    
+    switch (activity) {
+      case "little":
+        activityMultiplier = 1.2;
+        break;
 
-            alert('issa boy');
-            result = ((10 * weight) + (6.25 * height)) - (5 * age) + 5
-        }
-        
-        else if(gender == 'female' ){
+      case "light":
+        activityMultiplier = 1.375;
+        break;
 
-            alert('issa girl');
-            result = ((10 * weight) + (6.25 * height)) - (5 * age) - 161 
-        }
-        return result;
+      case "moderate":
+        activityMultiplier = 1.55;
+        break;
+
+      case "active":
+        activityMultiplier = 1.725;
+        break;
+
+      case "extra":
+        activityMultiplier = 1.9;
+        break;
+
+      default:
+        break;
+    }
+  });
+
+  function calculateBMR(gender, weight, height, age) {
+    // Choose gender specific formula (M)
+    if (gender == "male") {
+      result = 10 * weight + 6.25 * height - 5 * age + 5;
     }
 
-    $("#calForm").submit(function (event){
-        event.preventDefault();
-        bmr = calculateBMR(gender, weight, height, age);
-        console.log('BMR = ' + bmr);
-    });
-})
+    // Choose gender specific formula (F)
+    else if (gender == "female") {
+      result = 10 * weight + 6.25 * height - 5 * age - 161;
+    }
+
+    return result;
+  }
+
+  $("#calForm").submit(function (event) {
+    // Stop form submission
+    event.preventDefault();
+
+    //Calculate BMR
+    bmr = calculateBMR(gender, weight, height, age);
+
+    var caloricResult = bmr * activityMultiplier;
+
+    console.log("BMR = " + bmr); //Debugging LOG
+    console.log("Caloric Result = " + caloricResult); //Debugging LOG
+
+  });
+});
