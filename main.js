@@ -9,6 +9,7 @@ $(document).ready(function () {
   let activityMultiplier;
   let result;
   let bmr;
+  let calorieGOAL;
 
   // Assign value of gender from form input
   $("input[type=radio][name=gender]").change(function () {
@@ -46,7 +47,6 @@ $(document).ready(function () {
     console.log(activity);
 
     // switch statement dependent on value of dropdown selection
-    
     switch (activity) {
       case "little":
         activityMultiplier = 1.2;
@@ -87,6 +87,34 @@ $(document).ready(function () {
     return result;
   }
 
+  function calculateGoal(caloricResult, goal) {
+    switch (goal) {
+      case "sigLoss":
+        calorieGOAL = (caloricResult - 400);
+        break;
+
+      case "loss":
+        calorieGOAL = (caloricResult - 200);
+        break;
+
+      case "maintain":
+        calorieGOAL = caloricResult;
+        break;
+
+      case "gain":
+        calorieGOAL = (caloricResult + 200);
+        break;
+
+      case "sigGain":
+        calorieGOAL = (caloricResult + 400);
+        break;
+
+      default:
+        break;
+    }
+    return calorieGOAL;
+  }
+
   $("#calForm").submit(function (event) {
     // Stop form submission
     event.preventDefault();
@@ -94,10 +122,16 @@ $(document).ready(function () {
     //Calculate BMR
     bmr = calculateBMR(gender, weight, height, age);
 
+    //Calculate Caloric Result
     var caloricResult = bmr * activityMultiplier;
+
+    //Calculate RESULTING CALORIE INTAKE GOALS
+    const result = calculateGoal(caloricResult, goal);
+
+    $("#calorieResult").text(result);
 
     console.log("BMR = " + bmr); //Debugging LOG
     console.log("Caloric Result = " + caloricResult); //Debugging LOG
-
+    console.log("FINAL CALORIE INTAKE GOALS = " + result + `(${goal})`); //Debugging LOG
   });
 });

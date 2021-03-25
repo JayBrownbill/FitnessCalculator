@@ -19,19 +19,19 @@
 
       <!-- Weight Loss Goal -->
       <label for="sigLoss"> Loss +  </label>
-      <input type="radio" name="goal" value=400 id="sigLoss"> &nbsp; 
+      <input type="radio" name="goal" value= "sigLoss" id="sigLoss"> &nbsp; 
       
       <label for="loss"> Loss  </label>
-      <input type="radio" name="goal" value=200 id="loss"> &nbsp; 
+      <input type="radio" name="goal" value= "loss" id="loss"> &nbsp; 
 
       <label for="maintain"> Maintain  </label>
-      <input type="radio" name="goal" value=0 id="maintain"> &nbsp; 
+      <input type="radio" name="goal" value= "maintain" id="maintain"> &nbsp; 
 
       <label for="gain"> Gain  </label>
-      <input type="radio" name="goal" value=200 id="gain"> &nbsp; 
+      <input type="radio" name="goal" value= "gain" id="gain"> &nbsp; 
 
       <label for="sigGain"> Gain +  </label>
-      <input type="radio" name="goal" value=400 id="sigGain"> <br/>
+      <input type="radio" name="goal" value= sigGain id="sigGain"> <br/>
 
       <label>Height (cm)</label>
       <input type="number" name="height" id="height"> <br/>
@@ -54,6 +54,8 @@
 
       <br/><button type="submit"> Calculate </button>
     </form>
+
+    <div id="calorieResult"></div>
 
   </body>
 </html>
