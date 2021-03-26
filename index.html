@@ -13,49 +13,48 @@
     <form id="calForm">
       <!-- Gender -->
       <label for="Male"> Male </label>
-      <input type="radio" name="gender" value="male" id="check-male">   
-      <label for="Female"> Female  </label> 
-      <input type="radio" name="gender" value="female" id="check-female"> <br>
+      <input type="radio" name="gender" value="male" id="check-male" />
+      <label for="Female"> Female </label>
+      <input type="radio" name="gender" value="female" id="check-female" />
+      <br />
 
       <!-- Weight Loss Goal -->
-      <label for="sigLoss"> Loss +  </label>
-      <input type="radio" name="goal" value= "sigLoss" id="sigLoss"> &nbsp; 
-      
-      <label for="loss"> Loss  </label>
-      <input type="radio" name="goal" value= "loss" id="loss"> &nbsp; 
+      <label for="sigLoss"> Loss + </label>
+      <input type="radio" name="goal" value="sigLoss" id="sigLoss" /> &nbsp;
 
-      <label for="maintain"> Maintain  </label>
-      <input type="radio" name="goal" value= "maintain" id="maintain"> &nbsp; 
+      <label for="loss"> Loss </label>
+      <input type="radio" name="goal" value="loss" id="loss" /> &nbsp;
 
-      <label for="gain"> Gain  </label>
-      <input type="radio" name="goal" value= "gain" id="gain"> &nbsp; 
+      <label for="maintain"> Maintain </label>
+      <input type="radio" name="goal" value="maintain" id="maintain" /> &nbsp;
 
-      <label for="sigGain"> Gain +  </label>
-      <input type="radio" name="goal" value= sigGain id="sigGain"> <br/>
+      <label for="gain"> Gain </label>
+      <input type="radio" name="goal" value="gain" id="gain" /> &nbsp;
+
+      <label for="sigGain"> Gain + </label>
+      <input type="radio" name="goal" value="sigGain" id="sigGain" /> <br />
 
       <label>Height (cm)</label>
-      <input type="number" name="height" id="height"> <br/>
+      <input type="number" name="height" id="height" /> <br />
 
       <label for="age">Age</label>
-      <input type="number" name="age" id="age"> <br/>
+      <input type="number" name="age" id="age" /> <br />
 
       <label for="age">Weight</label>
-      <input type="number" name="weight" id="weight"> <br/>
+      <input type="number" name="weight" id="weight" /> <br />
 
       <select id="activitylvl" name="activitylevel">
-        <option value=""> Activity Level </option>
-        <option value="little"> Little to none </option>
-        <option value="light"> Light </option>
-        <option value="moderate"> Moderate </option>
-        <option value="active"> Very active </option>
-        <option value="extra"> Extra active </option>
+        <option value="">Activity Level</option>
+        <option value="little">Little to none</option>
+        <option value="light">Light</option>
+        <option value="moderate">Moderate</option>
+        <option value="active">Very active</option>
+        <option value="extra">Extra active</option>
       </select>
 
-
-      <br/><button type="submit"> Calculate </button>
+      <br /><button type="submit">Calculate</button>
     </form>
 
     <div id="calorieResult"></div>
-
   </body>
 </html>

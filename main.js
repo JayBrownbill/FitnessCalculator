@@ -12,7 +12,7 @@ $(document).ready(function () {
   let calorieGOAL;
 
   // Assign value of gender from form input
-  $("input[type=radio][name=gender]").change(function () {
+  $("input[type=radio][name=gnder]").change(function () {
     gender = this.value;
     console.log(gender);
   });
@@ -90,11 +90,11 @@ $(document).ready(function () {
   function calculateGoal(caloricResult, goal) {
     switch (goal) {
       case "sigLoss":
-        calorieGOAL = (caloricResult - 400);
+        calorieGOAL = caloricResult - 400;
         break;
 
       case "loss":
-        calorieGOAL = (caloricResult - 200);
+        calorieGOAL = caloricResult - 200;
         break;
 
       case "maintain":
@@ -102,11 +102,11 @@ $(document).ready(function () {
         break;
 
       case "gain":
-        calorieGOAL = (caloricResult + 200);
+        calorieGOAL = caloricResult + 200;
         break;
 
       case "sigGain":
-        calorieGOAL = (caloricResult + 400);
+        calorieGOAL = caloricResult + 400;
         break;
 
       default:
