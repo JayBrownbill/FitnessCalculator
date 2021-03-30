@@ -1,35 +1,46 @@
-.modalOverlay{
-    position: absolute;
-    display: flexbox;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 100vw;
-    height: 100vh;
-    z-index: 1000;
-    background-color: rgba(17, 17, 17, 0.815);
 
-}
 
-/* #calculatorModal{
-    position: relative;
-    margin: 35vh 30vw;
-    width: 30%;
-    z-index: 1000;
-    background-color: #fff;
-    padding: 20px;
 
-} */
+.blocker{
+     z-index: 1000 !important;
+ }
 
-#calculatorModal{
-    width: 30%;
-    height: 50%;
+ #calculatorModal{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 80%;
+    /* height: 42%; */
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
-    z-index: 1000;
-    padding: 30px;
+}
 
-    background-color: #fff;
 
+@media only screen and (max-width: 600px) {
+    #calculatorModal{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        width: 80%;
+        height: 65vh;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        overflow-y: scroll;
+    }
+
+    #calculatorModal h2{
+        font-size: larger;
+    }
+
+    .close-modal{
+        margin-right: 5vw;
+        margin-top: 5vw;
+    }
+    
 }
